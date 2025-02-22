@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from 'typeorm';
+import { Article } from './article.entity';
 
 
 @Entity('tags')
@@ -12,6 +13,6 @@ export class Tag {
   @Column({ unique: true })
   slug: string;
 
-//   @ManyToMany(() => Article, (article) => article.tags)
-//   articles: Article[];
+  @ManyToMany(() => Article, (article) => article.tags)
+  articles: Article[];
 }
